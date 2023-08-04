@@ -20,7 +20,7 @@ export default function Example({ data = [] }: ExampleProps) {
 
 export async function getServerSideProps() {
   try {
-    const response = await axios.get('http://localhost:3000/api/data'); // Replace with your actual API endpoint URL
+    const response = await axios.get(`${process.env.WEBSITE}/api/data`); // Replace with your actual API endpoint URL
     const data = response.data ?? []; // Use optional chaining and nullish coalescing to handle undefined values
     console.log(response, data)
     return {
