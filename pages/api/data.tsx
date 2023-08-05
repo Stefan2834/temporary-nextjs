@@ -1,7 +1,26 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextApiRequest, NextApiResponse } from 'next';
+import { connectToDatabase } from './mongo';
 
-const names: string[] = ['John', 'Jane', 'Michael', 'Emily'];
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  try {
+    const dbConnection = await connectToDatabase();
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  res.json(names);
+    if (!dbConnection) {
+      throw new Error('Failed to establish a database connection.');
+    }
+
+    const { db } = dbConnection;
+
+    // Assuming you have a collection named 'names' in your MongoDB database
+    const namesCollection = db.collection('users');
+
+    // Query the database to get the data
+    const users = await namesCollection.find({}).toArray();
+    console.log('HEREEEEEEEEEEEEEEEEEEEEEEEEEEE', users)
+
+    res.json(users);
+  } catch (error) {
+    console.error('Error fetching data from the database:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
 }

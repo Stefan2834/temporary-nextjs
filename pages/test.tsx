@@ -1,28 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react'
+import Rating from '@mui/material/Rating';
 
-interface ExampleProps {
-  data?: string[];
-}
 
-export default function Test({ data = [] }: ExampleProps) {
+export default function Test() {
+
   return (
-    <div>
-      <h1>Data fetched using Server-Side Rendering (SSR)</h1>
-      <ul>
-        {data.map((item: string) => (
-          <li key={item}>{item}</li>
-        ))}
-      </ul>
-    </div>
+    <>
+      <Rating name="half-rating" defaultValue={2.25} precision={1} readOnly />
+    </>
   );
-}
-
-export async function getServerSideProps() {
-  console.log('mirel')
-  const data: string[] = ['0','1']
-  return {
-    props: {
-      data,
-    },
-  };
 }

@@ -9,6 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@fontsource/roboto": "^5.0.7",
+    "@mui/icons-material": "^5.14.3",
+    "@mui/lab": "^5.0.0-alpha.138",
+    "@mui/material": "^5.14.3",
+    "@types/mongoose": "^5.11.97",
     "@types/node": "20.4.5",
     "@types/react": "18.2.18",
     "@types/react-dom": "18.2.7",
@@ -16,6 +23,7 @@
     "axios": "^1.4.0",
     "clsx": "^2.0.0",
     "env": "^0.0.2",
+    "mongoose": "^7.4.2",
     "next": "13.4.12",
     "next-auth": "^4.22.3",
     "postcss": "8.4.27",
