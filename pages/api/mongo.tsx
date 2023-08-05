@@ -1,7 +1,7 @@
 import { MongoClient, Db } from 'mongodb';
 
 const url: string | undefined= process.env.MONGODB_URI; // Replace with your actual MongoDB connection string
-const dbName = 'blisst'; // Replace with your database name
+const dbName = 'chat-app'; // Replace with your database name
 
 let cachedClient: MongoClient;
 let cachedDb: Db;

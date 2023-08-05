@@ -16,7 +16,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     // Query the database to get the data
     const users = await namesCollection.find({}).toArray();
-    console.log('HEREEEEEEEEEEEEEEEEEEEEEEEEEEE', users)
 
     res.json(users);
   } catch (error) {

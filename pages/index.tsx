@@ -16,14 +16,14 @@ export default function Example({ data = [] }: ExampleProps) {
       <h1>Data fetched using Server-Side Rendering (SSR)</h1>
       <ul>
         {data.map((item: any) => (
-          <li key={item.email}>{item.email}</li>
+          <li key={item.name}>{item.name}</li>
         ))}
       </ul>
     </div>
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   try {
     const response = await axios.get(`${process.env.WEBSITE}/api/data`); // Replace with your actual API endpoint URL
     const data = response.data ?? []; // Use optional chaining and nullish coalescing to handle undefined values
